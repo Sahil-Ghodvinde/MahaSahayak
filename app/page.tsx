@@ -27,10 +27,10 @@ export default function Home() {
       </div>
 
       {/* Logo and title bar */}
-      <div className="flex justify-between items-center px-4 py-2">
+      <div className="flex flex-col md:flex-row justify-between items-center px-4 py-2 gap-4">
         <div className="flex items-center gap-2">
           <Image
-            src="/placeholder.svg?height=80&width=140"
+            src="/images.png"
             alt="Government Logo"
             width={140}
             height={80}
@@ -38,13 +38,13 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-2">
-            <span className="text-amber-500 font-bold text-xl">MAHARASHTRA</span>
-            <span className="text-green-600 font-bold text-xl">RIGHT TO PUBLIC SERVICES ACT</span>
+          <div className="flex flex-col md:flex-row items-center gap-2 text-center">
+            <span className="text-amber-500 font-bold text-lg md:text-xl">MAHARASHTRA</span>
+            <span className="text-green-600 font-bold text-lg md:text-xl">RIGHT TO PUBLIC SERVICES ACT</span>
           </div>
           <div className="flex items-center gap-2 text-blue-600">
             <Image
-              src="/placeholder.svg?height=30&width=30"
+              src="/Right-Serve.png"
               alt="Service Logo"
               width={30}
               height={30}
@@ -53,11 +53,17 @@ export default function Home() {
             <span className="uppercase text-sm font-semibold">Your service is our duty</span>
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="grid grid-cols-2 md:flex gap-3 md:gap-6">
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="flex flex-col items-center">
               <Image
-                src="/placeholder.svg?height=60&width=60"
+                src={i === 0 
+                  ? "/Devendra_Fadanvis.png" 
+                  : i === 1 
+                    ? "/Eknath_Shinde.png" 
+                    : i === 2 
+                      ? "/ajit_pawar.png" 
+                      : "/ashish_shelar.jpg"}
                 alt={`Official ${i + 1}`}
                 width={60}
                 height={60}
@@ -89,7 +95,7 @@ export default function Home() {
       </div>
 
       {/* Navigation bar */}
-      <div className="bg-orange-400 text-white flex items-center px-2 py-1 text-xs">
+      <div className="bg-orange-400 text-white flex flex-wrap items-center px-2 py-1 text-xs">
         <Link href="#" className="bg-orange-500 px-3 py-2 flex items-center gap-1">
           <span className="inline-block w-4 h-4">🏠</span> HOME
         </Link>
@@ -138,17 +144,17 @@ export default function Home() {
         {/* Background map image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=600&width=1200"
+            src="/bg2.jpg"
             alt="Maharashtra Map"
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-80"
           />
         </div>
 
         {/* Main content area */}
-        <div className="flex flex-1 z-10 relative">
+        <div className="flex flex-col md:flex-row flex-1 z-10 relative">
           {/* Services section */}
-          <div className="w-3/5 p-4">
+          <div className="w-full md:w-3/5 p-4">
             <h2 className="text-white text-center text-xl font-semibold bg-blue-500 py-2 mb-4">
               SERVICES AVAILABLE ONLINE
             </h2>
@@ -158,7 +164,7 @@ export default function Home() {
                 <Search className="w-4 h-4" />
                 <span>Click below services for details</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2">
                 <span>Toggle auto scrolling</span>
               </div>
             </div>
@@ -171,22 +177,20 @@ export default function Home() {
               />
             </div>
 
-            <div className="bg-black bg-opacity-80 p-2 text-yellow-400 font-semibold">Revenue Department</div>
+            <div className="bg-black bg-opacity-80 p-2 text-yellow-400 font-semibold">Water Resources Department</div>
 
-            <div className="grid grid-cols-2 gap-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
               {[
-                "Age Nationality Domicile",
-                "Income Certificate",
-                "Temporary Residence Certificate",
-                "Senior Citizen Certificate",
-                "Solvency Certificate",
-                "Cultural Programme Permission",
-                "Certified Copy",
-                "Small Land Holder Farmer Certificate",
-                "LandLess Certificate",
-                "Agricultural Certificate",
-                "General Affidavit",
-                "Certificate of Residence in Hilly Area",
+                "Permission for Domestic and Drinking Use of Water Required for Grampanchayat, Nagar-Palika, Nagar Parishad, Nagarpanchayat and Cantonment Board",
+                "Domestic and Industrial Water Permits to Corporations, Private Developers, and Special Townships",
+                "Sanction of water entitlement to WUA's",
+                "Certificate of Arrears of Non Irrigation use of water",
+                "Certificate of arrears for Irrigation water charges to WUA",
+                "Resolution of complaints regarding water charges",
+                "Command area Certificate",
+                "Distance certificate from notified River / Reservoir",
+                "Permission for long term lift irrigation",
+                "Industrial Water Permission",
               ].map((service, i) => (
                 <div
                   key={i}
@@ -199,7 +203,7 @@ export default function Home() {
           </div>
 
           {/* Right sidebar */}
-          <div className="w-2/5 p-4 flex flex-col gap-4">
+          <div className="w-full md:w-2/5 p-4 flex flex-col gap-4">
             <div className="bg-orange-400 text-white p-2">
               <div className="flex justify-between items-center">
                 <span>FAQs & Answers on Maharashtra Right to Public Services Act</span>
@@ -230,17 +234,17 @@ export default function Home() {
 
             {/* Contact Us Prominent Box */}
             <div className="bg-blue-600 text-white p-4 rounded shadow-lg mb-4">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col md:flex-row items-center gap-3">
                 <div className="bg-white rounded-full p-3">
                   <span className="text-blue-600 text-2xl">📞</span>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 text-center md:text-left my-2 md:my-0">
                   <h3 className="font-bold text-lg">Need Help?</h3>
                   <p className="text-sm">Reach out to our support team for any questions or assistance</p>
                 </div>
                 <Link 
                   href="/contact-us" 
-                  className="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-100 transition"
+                  className="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-100 transition w-full md:w-auto text-center"
                 >
                   Contact Us
                 </Link>
@@ -250,11 +254,11 @@ export default function Home() {
             <div className="bg-green-500 text-white p-4 rounded">
               <p>Create your profile with this portal to apply online for notified services</p>
 
-              <div className="flex gap-2 mt-2">
+              <div className="flex flex-col md:flex-row gap-2 mt-2">
                 <button className="bg-blue-600 text-white px-4 py-2 rounded flex-1 text-sm">
                   New User ? Register Here..
                 </button>
-                <button className="bg-red-500 text-white px-4 py-2 rounded flex-1 text-sm">V.L.E Login</button>
+                <button className="bg-red-500 text-white px-4 py-2 rounded flex-1 text-sm mt-2 md:mt-0">V.L.E Login</button>
               </div>
 
               <div className="mt-4">
@@ -295,44 +299,44 @@ export default function Home() {
                 </select>
               </div>
 
-              <div className="mt-4 flex gap-2">
-                <button className="bg-blue-600 text-white px-4 py-1 text-sm">LOGIN</button>
-                <button className="bg-blue-600 text-white px-4 py-1 text-sm">Forgot Password?</button>
-                <button className="bg-blue-600 text-white px-4 py-1 text-sm">Forgot Username</button>
+              <div className="mt-4 flex flex-col md:flex-row gap-2">
+                <button className="bg-blue-600 text-white px-4 py-1 text-sm w-full md:w-auto">LOGIN</button>
+                <button className="bg-blue-600 text-white px-4 py-1 text-sm w-full md:w-auto mt-2 md:mt-0">Forgot Password?</button>
+                <button className="bg-blue-600 text-white px-4 py-1 text-sm w-full md:w-auto mt-2 md:mt-0">Forgot Username</button>
               </div>
             </div>
 
-            <div className="bg-orange-400 text-white p-4 flex gap-2">
-              <div className="flex-1">
+            <div className="bg-orange-400 text-white p-4 flex flex-wrap md:flex-nowrap gap-4 md:gap-2">
+              <div className="w-1/2 md:flex-1">
                 <div className="flex flex-col items-center">
                   <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center text-orange-500">
                     🔑
                   </div>
-                  <span className="text-xs mt-1">CITIZEN LOGIN</span>
+                  <span className="text-xs mt-1 text-center">CITIZEN LOGIN</span>
                 </div>
               </div>
-              <div className="flex-1">
+              <div className="w-1/2 md:flex-1">
                 <div className="flex flex-col items-center">
                   <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center text-orange-500">
                     📋
                   </div>
-                  <span className="text-xs mt-1">TRACK YOUR APPLICATION</span>
+                  <span className="text-xs mt-1 text-center">TRACK YOUR APPLICATION</span>
                 </div>
               </div>
-              <div className="flex-1">
+              <div className="w-1/2 md:flex-1">
                 <div className="flex flex-col items-center">
                   <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center text-orange-500">
                     ✓
                   </div>
-                  <span className="text-xs mt-1">VERIFY YOUR AUTHENTICATED CERTIFICATE</span>
+                  <span className="text-xs mt-1 text-center">VERIFY YOUR AUTHENTICATED CERTIFICATE</span>
                 </div>
               </div>
-              <div className="flex-1">
+              <div className="w-1/2 md:flex-1">
                 <Link href="/contact-us" className="flex flex-col items-center">
                   <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center text-orange-500">
                     📞
                   </div>
-                  <span className="text-xs mt-1">CALL CENTER</span>
+                  <span className="text-xs mt-1 text-center">CALL CENTER</span>
                 </Link>
               </div>
             </div>
@@ -348,15 +352,15 @@ export default function Home() {
       </div>
 
       {/* Integration section */}
-      <div className="grid grid-cols-5 gap-4 p-4 bg-white">
-        <div className="col-span-1">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 bg-white">
+        <div className="col-span-1 md:col-span-1">
           <div className="bg-blue-500 text-white p-2 text-center">
             <p>Integrated with</p>
             <p className="font-bold">Digital Locker</p>
           </div>
           <div className="bg-blue-100 p-4 flex justify-center">
             <Image
-              src="/placeholder.svg?height=80&width=80"
+              src="/digilocker.png"
               alt="DigiLocker"
               width={80}
               height={80}
@@ -364,14 +368,14 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 md:col-span-1">
           <div className="bg-red-500 text-white p-2 text-center">
             <p>Integrated with</p>
             <p className="font-bold">Aadhaar</p>
           </div>
           <div className="bg-red-100 p-4 flex justify-center">
             <Image
-              src="/placeholder.svg?height=80&width=80"
+              src="/AadhaarLogo.png"
               alt="Aadhaar"
               width={80}
               height={80}
@@ -379,14 +383,14 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 md:col-span-1">
           <div className="bg-green-500 text-white p-2 text-center">
             <p>Integrated with</p>
             <p className="font-bold">Pay Gov India</p>
           </div>
           <div className="bg-green-100 p-4 flex justify-center">
             <Image
-              src="/placeholder.svg?height=80&width=80"
+              src="/paygov.png"
               alt="Pay Gov India"
               width={80}
               height={80}
@@ -394,14 +398,14 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 md:col-span-1">
           <div className="bg-orange-500 text-white p-2 text-center">
             <p>Certificates</p>
             <p className="font-bold">Digitally signed</p>
           </div>
           <div className="bg-orange-100 p-4 flex justify-center">
             <Image
-              src="/placeholder.svg?height=80&width=80"
+              src="/digisign.png"
               alt="Digital Signature"
               width={80}
               height={80}
@@ -409,7 +413,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-2 md:col-span-1 mt-4 md:mt-0">
           <div className="p-2 text-center text-sm text-blue-600">
             <p>Service Integration Documents</p>
             <p>Download Service Integration Folder</p>
@@ -417,7 +421,7 @@ export default function Home() {
           </div>
           <div className="p-2 flex justify-center">
             <Image
-              src="/placeholder.svg?height=60&width=240"
+              src="/appstorelogo.png"
               alt="App Download"
               width={240}
               height={60}
@@ -429,7 +433,7 @@ export default function Home() {
 
       {/* Footer */}
       <div className="bg-gray-700 text-white p-4 text-xs">
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4">
           <Link href="#">Disclaimer and Policies</Link>
           <span>|</span>
           <Link href="#">Accessibility Statement</Link>

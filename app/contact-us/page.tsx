@@ -184,7 +184,7 @@ export default function ContactUs() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">Helpline:</h4>
-                      <CopyablePhone phoneNumber="1800-2000-1234" />
+                      <CopyablePhone phoneNumber="+1-484-789-6287" />
                     </div>
                   </div>
                   
